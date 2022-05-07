@@ -11,6 +11,7 @@ public class Robot extends TimedRobot {
   YukikazeDriveTrain drive;
   YukikazeCargoSystem cargo;
   YukikazeClimber climber;
+  YukikazeAutonomas autonomas;
   XboxController controller;
 
   Thread Distance;
@@ -22,6 +23,7 @@ public class Robot extends TimedRobot {
     drive = new YukikazeDriveTrain();
     cargo = new YukikazeCargoSystem();
     climber = new YukikazeClimber();
+    autonomas = new YukikazeAutonomas();
     controller = new XboxController(0);
 
     Distance = new Thread(
@@ -45,6 +47,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousPeriodic() {
+    autonomas.justDoIt();
   }
 
   @Override
