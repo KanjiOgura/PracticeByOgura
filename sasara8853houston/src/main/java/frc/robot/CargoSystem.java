@@ -17,32 +17,32 @@ public class CargoSystem {
     private double distanceSensorValue;
     private double distanceSensorValue4;
     private double distanceSensorValue4pow;
-    public double distance;
+    public  double distance;
 
-    private final int intakeCANid = 5;
+    private final int intakeCANid  = 5;
     private final int shooterCANid = 6;
 
-    public boolean intakeMode = true;
-    public boolean isIntakeReveresd = true;
-    public boolean isCameInCargo = false;
-    private boolean isShooterOn = false;
-    private boolean isIntakeOn = false;
-    public int overIntakeCount = 0;
+    public boolean intakeMode          = true;
+    public boolean isIntakeReveresd    = true;
+    public boolean isCameInCargo       = false;
+    private boolean isShooterOn        = false;
+    private boolean isIntakeOn         = false;
+    public int overIntakeCount         = 0;
     public double distanceTojudgeCargo = 23.0;
 
 
     public CargoSystem() {
-        intake = new CANSparkMax(intakeCANid, MotorType.kBrushless);
-        shooter = new CANSparkMax(shooterCANid, MotorType.kBrushless);
-        controller = new XboxController(0);
+        intake         = new CANSparkMax(intakeCANid, MotorType.kBrushless);
+        shooter        = new CANSparkMax(shooterCANid, MotorType.kBrushless);
+        controller     = new XboxController(0);
         distanceSensor = new AnalogInput(0);
     }
 
     public void setCargoCentimeter() {
-        distanceSensorValue = distanceSensor.getAverageValue();
-        distanceSensorValue4 = distanceSensorValue / 4;
+        distanceSensorValue     = distanceSensor.getAverageValue();
+        distanceSensorValue4    = distanceSensorValue / 4;
         distanceSensorValue4pow = Math.pow(distanceSensorValue4, -1.136);
-        distance = 25391 * distanceSensorValue4pow;
+        distance                = 25391 * distanceSensorValue4pow;
     }
 
     public void switchIntakeMode() {
@@ -86,7 +86,7 @@ public class CargoSystem {
     }
 
     public void prepareToReverseCargo() {
-        isCameInCargo = true; // ボールを指定の位置まで戻す
+        isCameInCargo   = true; // ボールを指定の位置まで戻す
         overIntakeCount = 50;
     }
 

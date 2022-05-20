@@ -20,10 +20,10 @@ public class Drivetrain {
     public double power;
     public double rotation;
 
-    public final int driveLeftFrontCANid = 1;
+    public final int driveLeftFrontCANid  = 1;
     public final int driveRightFrontCANid = 2;
-    public final int driveLeftBackCANid = 3;
-    public final int driveRightBackCANid = 4;
+    public final int driveLeftBackCANid   = 3;
+    public final int driveRightBackCANid  = 4;
 
 
     public Drivetrain() {

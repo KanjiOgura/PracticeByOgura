@@ -11,16 +11,16 @@ public class Climber {
     private CANSparkMax climbRightAngle;
 
 
-    private final int climbUpDownCANid = 7;
-    private final int climbLeftAngleCANid = 8;
+    private final int climbUpDownCANid     = 7;
+    private final int climbLeftAngleCANid  = 8;
     private final int climbRightAngleCANid = 9;
-    private final double climbAngleOutput = 0.05;
+    private final double climbAngleOutput  = 0.05;
     private final double climbUpDownOutput = 1;
 
 
     public Climber() {
-        climbUpDown = new CANSparkMax(climbUpDownCANid, MotorType.kBrushless);
-        climbLeftAngle = new CANSparkMax(climbLeftAngleCANid, MotorType.kBrushless);
+        climbUpDown     = new CANSparkMax(climbUpDownCANid, MotorType.kBrushless);
+        climbLeftAngle  = new CANSparkMax(climbLeftAngleCANid, MotorType.kBrushless);
         climbRightAngle = new CANSparkMax(climbRightAngleCANid, MotorType.kBrushless);
 
         climbRightAngle.setInverted(true);
