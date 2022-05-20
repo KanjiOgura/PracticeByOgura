@@ -8,11 +8,13 @@ import edu.wpi.first.wpilibj.AnalogInput;
 
 public class Robot extends TimedRobot {
 
-  YukikazeDriveTrain drive;
+  YukikazeDrivetrain drive;
   YukikazeCargoSystem cargo;
   YukikazeClimber climber;
   YukikazeAutonomas autonomas;
   XboxController controller;
+  double power;
+  double rotation;
 
   Thread Distance;
   AnalogInput distanceSensor = new AnalogInput(0);
@@ -20,7 +22,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
 
-    drive = new YukikazeDriveTrain();
+    drive = new YukikazeDrivetrain();
     cargo = new YukikazeCargoSystem();
     climber = new YukikazeClimber();
     autonomas = new YukikazeAutonomas();
@@ -58,8 +60,10 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
 
     // driveTrain
-    drive.setDriveInput();
-    drive.arcadedrive(drive.power, drive.rotation);
+    power    = - controller.getLeftTriggerAxis() + controller.getRightTriggerAxis();
+    rotation = controller.getRightX();
+
+    YukikazeDrivetrain.drivetrain.arcadedrive(power, rotation);
 
     // intake & shooter
     if (controller.getStartButtonPressed()) {

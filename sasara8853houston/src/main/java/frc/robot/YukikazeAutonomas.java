@@ -7,12 +7,12 @@ public class YukikazeAutonomas {
     private int startShooter = 0;
     private int startPulley = 0;
 
-    YukikazeDriveTrain drive;
+    YukikazeDrivetrain drive;
     YukikazeCargoSystem cargo;
 
     public YukikazeAutonomas() {
 
-        drive = new YukikazeDriveTrain();
+        drive = new YukikazeDrivetrain();
         cargo = new YukikazeCargoSystem();
 
     }
