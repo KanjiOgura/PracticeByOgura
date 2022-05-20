@@ -6,7 +6,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-public class YukikazeDriveTrain {
+public class YukikazeDrivetrain {
 
 
     public CANSparkMax LFmotor;
@@ -14,7 +14,7 @@ public class YukikazeDriveTrain {
     public CANSparkMax LBmotor;
     public CANSparkMax RBmotor;
     public XboxController controller;
-    public DifferentialDrive driveTrain;
+    public DifferentialDrive drivetrain;
 
 
     public double power;
@@ -26,7 +26,7 @@ public class YukikazeDriveTrain {
     public final int driveRightBackCANid = 4;
 
 
-    public YukikazeDriveTrain() {
+    public YukikazeDrivetrain() {
         LFmotor = new CANSparkMax(driveLeftFrontCANid,  MotorType.kBrushless);
         RFmotor = new CANSparkMax(driveRightFrontCANid, MotorType.kBrushless);
         LBmotor = new CANSparkMax(driveLeftBackCANid,   MotorType.kBrushless);
@@ -43,15 +43,5 @@ public class YukikazeDriveTrain {
         RFmotor.setInverted(true);
         RBmotor.setInverted(true);
     }
-
-    public void setDriveInput() {
-        power = - controller.getLeftTriggerAxis() + controller.getRightTriggerAxis();
-        rotation = controller.getRightX();
-    }
-
-    public void arcadedrive(double power, double rotation) {
-        this.power    = power;
-        this.rotation = rotation;
-        driveTrain.arcadeDrive(power, rotation);
-    }
+    
 }
