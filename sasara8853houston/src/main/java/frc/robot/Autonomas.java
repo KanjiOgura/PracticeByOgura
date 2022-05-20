@@ -1,84 +1,38 @@
 package frc.robot;
 
-public class YukikazeAutonomas {
+public class Autonomas {
 
-    private int firstLittleBack = 370;
-    private int startBack = 0;
-    private int startShooter = 0;
-    private int startPulley = 0;
+    public int firstLittleBack     = 370;
+    public int startBack           = 0;
+    public int prepareShooter      = 0;
+    public int startShooting       = 0;
+    public double shootingOutput   = -0.8;
+    private double driveBackOutput = -0.4;
 
-    YukikazeDrivetrain drive;
-    YukikazeCargoSystem cargo;
+    Drivetrain drive;
+    CargoSystem cargo;
 
-    public YukikazeAutonomas() {
-
-        drive = new YukikazeDrivetrain();
-        cargo = new YukikazeCargoSystem();
-
+    public Autonomas() {
+        drive = new Drivetrain();
+        cargo = new CargoSystem();
     }
 
-    public void justDoIt() {
-
-        if (startBack != 0) {
-            startBack -= 1;
-            drive.LFmotor.set(-0.4);
-            drive.LBmotor.set(-0.4);
-            drive.RFmotor.set(-0.4);
-            drive.RBmotor.set(-0.4);
-            cargo.shooter.set(0);
-            cargo.intake.set(0);
-        }
-
-        if (startPulley == 1) {
-            startBack = 40;
-        }
-
-        if (startPulley != 0) {
-            startPulley -= 1;
-            cargo.intake.set(-0.7);
-            cargo.shooter.set(-0.8);
-            drive.LFmotor.set(0);
-            drive.LBmotor.set(0);
-            drive.RFmotor.set(0);
-            drive.RBmotor.set(0);
-        }
-
-        if (startShooter == 1) {
-            startPulley = 50;
-        }
-
-        if (startShooter != 0) {
-            startShooter -= 1;
-            cargo.shooter.set(-0.7);
-            cargo.intake.set(0);
-            drive.LFmotor.set(0);
-            drive.LBmotor.set(0);
-            drive.RFmotor.set(0);
-            drive.RBmotor.set(0);
-        }
-
-        if (firstLittleBack == 1) {
-            startShooter = 100;
-        }
-
-        if (firstLittleBack != 0) {
-            firstLittleBack -= 1;
-            drive.LFmotor.set(-0.4);
-            drive.LBmotor.set(-0.4);
-            drive.RFmotor.set(0.4);
-            drive.RBmotor.set(0.4);
-            cargo.shooter.set(0);
-            cargo.intake.set(0);
-        }
-
-        if (startBack == 0 && startPulley == 0 && startShooter == 0 && firstLittleBack == 0) {
-            drive.LFmotor.set(0);
-            drive.LBmotor.set(0);
-            drive.RFmotor.set(0);
-            drive.RBmotor.set(0);
-            cargo.shooter.set(0);
-            cargo.intake.set(0);
-        }
+    public void stopDriving() {
+        drive.LFmotor.set(0);
+        drive.LBmotor.set(0);
+        drive.RFmotor.set(0);
+        drive.RBmotor.set(0);
     }
 
+    public void stopCargoMotors() {
+        cargo.shooter.set(0);
+        cargo.intake.set(0);
+    }
+
+    public void driveBack() {
+        drive.LFmotor.set(driveBackOutput);
+        drive.LBmotor.set(driveBackOutput);
+        drive.RFmotor.set(driveBackOutput);
+        drive.RBmotor.set(driveBackOutput);
+    }
 }
