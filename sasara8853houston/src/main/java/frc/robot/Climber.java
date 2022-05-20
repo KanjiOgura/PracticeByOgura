@@ -3,7 +3,7 @@ package frc.robot;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-public class YukikazeClimber {
+public class Climber {
 
 
     private CANSparkMax climbUpDown;
@@ -18,7 +18,7 @@ public class YukikazeClimber {
     private final double climbUpDownOutput = 1;
 
 
-    public YukikazeClimber() {
+    public Climber() {
         climbUpDown = new CANSparkMax(climbUpDownCANid, MotorType.kBrushless);
         climbLeftAngle = new CANSparkMax(climbLeftAngleCANid, MotorType.kBrushless);
         climbRightAngle = new CANSparkMax(climbRightAngleCANid, MotorType.kBrushless);

@@ -6,7 +6,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-public class YukikazeDrivetrain {
+public class Drivetrain {
 
 
     public CANSparkMax LFmotor;
@@ -26,7 +26,7 @@ public class YukikazeDrivetrain {
     public final int driveRightBackCANid = 4;
 
 
-    public YukikazeDrivetrain() {
+    public Drivetrain() {
         LFmotor = new CANSparkMax(driveLeftFrontCANid,  MotorType.kBrushless);
         RFmotor = new CANSparkMax(driveRightFrontCANid, MotorType.kBrushless);
         LBmotor = new CANSparkMax(driveLeftBackCANid,   MotorType.kBrushless);

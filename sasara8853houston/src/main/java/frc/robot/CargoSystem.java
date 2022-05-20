@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.AnalogInput;
 
 import edu.wpi.first.wpilibj.XboxController;
 
-public class YukikazeCargoSystem {
+public class CargoSystem {
 
     public CANSparkMax intake;
     public CANSparkMax shooter;
@@ -31,7 +31,7 @@ public class YukikazeCargoSystem {
     public double distanceTojudgeCargo = 23.0;
 
 
-    public YukikazeCargoSystem() {
+    public CargoSystem() {
         intake = new CANSparkMax(intakeCANid, MotorType.kBrushless);
         shooter = new CANSparkMax(shooterCANid, MotorType.kBrushless);
         controller = new XboxController(0);
